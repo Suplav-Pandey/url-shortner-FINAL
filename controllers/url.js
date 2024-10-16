@@ -28,7 +28,8 @@ async function generateShortUrl(req,res){
             clicks
         });
 
-        return res.status(201).send(`the short url generated is ${shortUrl}`);
+        //return res.status(201).send(`the short url generated is ${shortUrl}`);
+        return res.status(201).render("home",{shortUrl});
     }catch(error){
         console.log(`error while generating short url . ${error}`);
         return res.status(500).send(`error while generating short url . ${error}`);

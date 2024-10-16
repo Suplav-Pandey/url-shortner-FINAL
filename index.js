@@ -7,6 +7,10 @@ const PORT=3000;
 const mongooDbConnect=require("./connection");
 mongooDbConnect("mongodb://127.0.0.1:27017/THE-URL-SHORTNER");
 
+const path=require("path");
+app.set("view engine","ejs");
+app.set("views",path.resolve("./views"));
+
 const url=require("./routes/url");
 const user=require("./routes/user");
 const cookieParser=require("cookie-parser");

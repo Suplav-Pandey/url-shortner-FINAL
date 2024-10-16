@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL SHORTENER</title>
+</head>
+<body>
+    <h1>THE URL SHORTENER</h1>
+    <hr>
+    <hr>
+    <form action="/user/register" method="post"><button>REGISTER</button></form>
+    <form action="/user/login" method="get"><button>LOGIN</button></form>
+    <hr>
+    <% if (locals.shortUrl) { %>
+        <h3>The short URL generated is: <%= locals.shortUrl %></h3>
+    <% } %>
+    <div>
+        <h3>GENERATE SHORT URL</h3>
+        <form action="/url/generateUrl" method="post">
+            <label>Enter original URL: </label>
+            <input type="text" placeholder="http://example.com" name="orignalUrl">
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+</body>
+</html>
