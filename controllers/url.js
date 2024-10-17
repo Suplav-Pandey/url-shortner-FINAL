@@ -1,18 +1,9 @@
 const URL=require("../models/url");
 const crypto=require("crypto");
-const { getUser } = require("../services/auth");
 
 async function generateShortUrl(req,res){
     try{
-        const uid=req.cookies?.uid;
-        if(!uid){
-            return res.status(400).send("no session id found .please login"); 
-        }
-        const userEmail=getUser(uid);
-        if(!userEmail){
-            return res.status(400).send("no user found .please login");
-        }
-
+        const userEmail=req.userEmail;
         const orignalUrl=req.body.orignalUrl;
         if(!orignalUrl){
             return res.status(400).send("the orignalUrl is required .")
@@ -27,9 +18,10 @@ async function generateShortUrl(req,res){
             createdBy,
             clicks
         });
+        
+        const URl=req.urlByRole;
 
-        //return res.status(201).send(`the short url generated is ${shortUrl}`);
-        return res.status(201).render("home",{shortUrl});
+        return res.status(201).render("home",{shortUrl,URl});
     }catch(error){
         console.log(`error while generating short url . ${error}`);
         return res.status(500).send(`error while generating short url . ${error}`);

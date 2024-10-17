@@ -23,5 +23,35 @@
             <button type="submit">Generate</button>
         </form>
     </div>
+    <hr><hr>
+    <div>
+        <h3>CREATED URLS</h3>
+        <% if (locals.URl && locals.URl.length > 0) { %>
+            <table border="1" cellspacing="10">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>OriginalUrl</th>
+                        <th>ShortUrl</th>
+                        <th>Clicks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let count = 0; %>
+                    <% locals.URl.forEach(url => { %>
+                        <% count++; %>
+                        <tr>
+                            <td><%= count %></td>
+                            <td><%= url.orignalUrl %></td>
+                            <td><%= url.shortUrl %></td>
+                            <td><%= url.clicks %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>NO URL FOUND.</p>
+        <% } %>
+    </div>
 </body>
 </html>

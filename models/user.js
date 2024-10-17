@@ -13,6 +13,10 @@ const userSchema=mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    role:{
+        type:String,
+        default:"NORMAL" //BUT IF WE MAKE IT "ADMIN" THEN IT WILL AUTOMATICALLY SHOW ALL URLS.
     }
 },{timestamps:true});
 

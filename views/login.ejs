@@ -14,7 +14,10 @@
 
     <% if (locals.email) { %>
         <p>Either Email or Password is incorrect. Please try again.</p>
+    <% }else if(locals.message){ %>
+        <p><%= locals.message %></p>
     <% } %>
+    
     <div>
         <form action="/user/login" method="get">
             <label>Email</label>

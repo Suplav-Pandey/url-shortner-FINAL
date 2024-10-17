@@ -2,10 +2,11 @@ const express=require("express");
 const url=express.Router();
 
 const {generateShortUrl,redirectToOrignalUrl}=require("../controllers/url");
+const {authentic,authorizaton}= require("../middleware/auth");
 
-url.post("/generateUrl",generateShortUrl);
+url.post("/generateUrl",authentic,authorizaton,generateShortUrl);
 url.get("/redirect/:shortUrl",redirectToOrignalUrl);
-url.get("/",(req,res)=>{
+url.get("/",authentic,(req,res)=>{
     res.render("home");//rendering home
 });
 

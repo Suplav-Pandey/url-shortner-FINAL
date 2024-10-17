@@ -1,5 +1,5 @@
 const USER=require("../models/user");
-const { setUser } = require("../services/auth");
+const { setUser } = require("../services/authentication");
 
 async function register(req,res){
     try{

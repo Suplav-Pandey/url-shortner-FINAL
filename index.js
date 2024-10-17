@@ -23,3 +23,9 @@ app.use("/url",url);
 app.use("/user",user);
 
 app.listen(PORT,console.log(`the server started at port ${PORT}.`));
+
+//home page ->http://localhost:3000/url
+
+//there is a very little bug while { displaying urls only } ->that it eats the first generated url and generate url in every refresh while { generating url }.
+
+//else every thing work fine.
